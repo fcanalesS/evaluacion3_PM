@@ -36,7 +36,7 @@ export class LoginPage implements OnInit {
     try {
       const res = await this.afAuth.signInWithEmailAndPassword(username, password);
       console.log(res);
-      await this.route.navigate(['navscan'])
+      await this.route.navigate(['logeado'])
     } catch (error) {
       if (error instanceof FirebaseError) {
         if (error.code === "auth/invalid-email") await this.showAlert("Error", "El nombre de usuario o contraseña es incorrecto");

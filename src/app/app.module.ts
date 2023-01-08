@@ -12,12 +12,18 @@ import {AngularFireModule} from "@angular/fire/compat";
 import {BarcodeScanner} from "@ionic-native/barcode-scanner/ngx";
 import {Storage} from "@ionic/storage";
 import {InAppBrowser} from "@ionic-native/in-app-browser/ngx";
+import {ProductoComponent} from "./producto/producto.component";
+import {FormsModule} from "@angular/forms";
+import {PeticionesService} from "./services/peticiones.service";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {EnvioComponent} from "./envio/envio.component";
+import {ClienteComponent} from "./cliente/cliente.component";
 
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AngularFireModule.initializeApp(firebaseConfig), AngularFireModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, BarcodeScanner, Storage, InAppBrowser],
+  declarations: [AppComponent, ProductoComponent, EnvioComponent, ClienteComponent],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AngularFireModule.initializeApp(firebaseConfig), AngularFireModule, FormsModule, HttpClientModule],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, BarcodeScanner, Storage, InAppBrowser, PeticionesService, HttpClient, HttpClientModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

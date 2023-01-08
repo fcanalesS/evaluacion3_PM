@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {ProductoComponent} from "./producto/producto.component";
+import {ClienteComponent} from "./cliente/cliente.component";
+import {EnvioComponent} from "./envio/envio.component";
 
 const routes: Routes = [
   {
@@ -24,13 +27,23 @@ const routes: Routes = [
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
   },
   {
+    path: 'producto', component: ProductoComponent
+  },
+  {
+    path: 'cliente', component: ClienteComponent
+  },
+  {
+    path: 'envio', component: EnvioComponent
+  },
+  {
     path: 'logeado',
     loadChildren: () => import('./logeado/logeado.module').then( m => m.LogeadoPageModule)
   },
   {
     path: 'navscan',
     loadChildren: () => import('./pages/navscan/navscan.module').then( m => m.NavscanPageModule)
-  }
+  },
+
 ];
 
 @NgModule({

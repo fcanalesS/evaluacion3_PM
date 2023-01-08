@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="/logeado"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Ingresar Producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Nombre Producto</ion-label>
+    <ion-input type="text" [(ngModel)]="model.NOMBRE_PRODUCTO"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Capacidad</ion-label>
+    <ion-input type="text" [(ngModel)]="model.CAPACIDAD"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Código Producto</ion-label>
+    <ion-input type="number" [(ngModel)]="model.CODIGO_PRODUCTO"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">STOCK</ion-label>
+    <ion-input type="number" [(ngModel)]="model.STOCK"></ion-input>
+  </ion-item>
+  <ion-button expand="full" (click)="agregarProducto()">Agregar Producto</ion-button>
+
+  <ion-title position="center">Listado de Productos</ion-title>
+
+  <ion-list>
+
+    <ion-item *ngFor="let registro of producto">
+      <ion-label>
+        <h2>{{registro.NOMBRE_PRODUCTO}}</h2>
+        <p>Stock</p>
+        <p>{{registro.STOCK}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
